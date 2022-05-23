@@ -2,6 +2,7 @@ const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 const SECRET = process.env.SECRET;
 const { v4: uuidv4 } = require("uuid");
+// uuid, helps generate our unique ids
 const S3 = require("aws-sdk/clients/s3");
 const s3 = new S3(); // initialize the construcotr
 // now s3 can crud on our s3 buckets
@@ -11,8 +12,9 @@ module.exports = {
   login,
 };
 
-function signup(req, res) {
-  console.log(req.body, req.file);
+async function signup(req, res) {
+  console.log('hitting signup router')
+  console.log(req.body, ' <- req.body is users signup', req.file, ' this is req.file')
 
   //////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////
@@ -21,7 +23,8 @@ function signup(req, res) {
   // FilePath unique name to be saved to our butckt
   const filePath = `${uuidv4()}/${req.file.originalname}`;
   const params = {
-    Bucket: process.env.BUCKET_NAME,
+    // Bucket: process.env.BUCKET_NAME,
+    Bucket: 'catcollectorbucket911',
     Key: filePath,
     Body: req.file.buffer,
   };
