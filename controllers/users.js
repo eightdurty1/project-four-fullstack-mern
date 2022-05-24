@@ -24,7 +24,8 @@ async function signup(req, res) {
   const filePath = `${uuidv4()}/${req.file.originalname}`;
   const params = {
     // Bucket: process.env.BUCKET_NAME,
-    Bucket: 'catcollectorbucket911',
+    // 'catcollectorbucket911'
+    Bucket: process.env.BUCKET_NAME,
     Key: filePath,
     Body: req.file.buffer,
   };
@@ -47,6 +48,7 @@ async function signup(req, res) {
 
 async function login(req, res) {
   try {
+    //configured to find user by their email, login form must send over the email. the key is called email, for password its password
     const user = await User.findOne({ email: req.body.email });
     console.log(user, " this user in login");
     if (!user) return res.status(401).json({ err: "bad credentials" });

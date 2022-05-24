@@ -30,6 +30,7 @@ export default function LoginPage(props) {
   }
 
   async function handleSubmit(e) {
+    //prevent browser from making a GET request
     e.preventDefault();
 
     try {

@@ -8,7 +8,7 @@ export default function SignUpPage(props) {
 
   const navigate = useNavigate();
 
-  const [error, setError ]          = useState('')
+  const [error, setError ] = useState('')
   const [state, setState] = useState({
     username: '',
     email: '',
@@ -20,13 +20,14 @@ export default function SignUpPage(props) {
   const [selectedFile, setSelectedFile] = useState('');
 
   async function handleSubmit(e){
-    e.preventDefault()
+    e.preventDefault() // <-- prevents the page from refreshing and making a request to the server
     
     // Photos have to be sent over using FormData,
     // they are sent over to the server in multiple requests
     const formData = new FormData()
     formData.append('photo', selectedFile)
     
+    //looped over state
     for (let fieldName in state){
       console.log(fieldName, state[fieldName])
       // append the rest of the data to the form obejct
@@ -35,7 +36,7 @@ export default function SignUpPage(props) {
    
     try {
         // If you want to view the formData you need to loop over the object
-        console.log(formData.forEach((item) => console.log(item)))
+        console.log(formData.forEach((item) => console.log(item))) // <- to look at keys we must for each over it. 
         
         // use the userService to make the fetch request
         await userService.signup(formData);
@@ -44,7 +45,7 @@ export default function SignUpPage(props) {
         // after you get a response from the server from 
         // the signup request, you need to grab the token from 
         // local storage and set the user!
-        props.habdleSignupOrLogin()
+        props.handleSignUpOrLogin()
         navigate('/')
       
       

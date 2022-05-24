@@ -31,6 +31,7 @@ function App() {
           path="/signup"
           element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
         />
+        
       </Routes>
     );
   }

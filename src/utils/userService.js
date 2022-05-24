@@ -8,7 +8,7 @@ function signup(user) {
   return (
     fetch(BASE_URL + "signup", {
       method: "POST",
-      body: user,
+      body: user, //<-- user will be the conents of our form, in formdata format. 
       // headers: new Headers({'Content-Type': 'application/json'}),
       // body: JSON.stringify(user)
     })
