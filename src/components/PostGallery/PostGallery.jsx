@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, Dimmer, Segment, Image  } from 'semantic-ui-react'
 import PostCard from '../PostCard/PostCard';
 import Loader from '../Loader/Loader';
@@ -18,8 +18,9 @@ export default function PostGallery({posts, numPhotosCol, isProfile, loading, ad
         {posts.map((post) => {
           return (
             <PostCard
-              post={post}
-              key={post.user._id}
+            //post
+              // post={post}
+              // key={post.user._id}
               isProfile={isProfile}
             //   addLike={addLike}
             //   removeLike={removeLike}

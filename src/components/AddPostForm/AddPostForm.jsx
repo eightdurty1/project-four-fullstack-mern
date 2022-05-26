@@ -5,12 +5,16 @@ import { Button, Form, Grid, Segment } from 'semantic-ui-react'
 
 export default function AddPostForm(props){
 
-    const [selectedFile, setSelectedFiile] = useState('')
-
+    const [selectedFile, setSelectedFile] = useState('')
+  //, setSelectedFile
     const [state, setState] = useState ({
       title: '',
       caption: ''
     })
+
+    function handleFileInput(e){
+      setSelectedFile(e.target.files[0])
+    }
 
     function handleChange(e){
       setState({
@@ -23,6 +27,7 @@ export default function AddPostForm(props){
     function handleSubmit(e){
       e.preventDefault()
       const formData = new FormData()
+      formData.append('photo', selectedFile)
       formData.append('title', state.title)
       formData.append('caption', state.caption)
       console.log(formData, "<---- formData");
@@ -50,7 +55,7 @@ export default function AddPostForm(props){
             className="form-control"
             name="caption"
             value={state.caption}
-            placeholder="What's on your pups mind?"
+            placeholder="What's on your mind"
             onChange={handleChange}
             required
         />  
@@ -58,7 +63,7 @@ export default function AddPostForm(props){
           type="submit"
           className="btn"
         >
-          ADD PUPPY
+          ADD POEM
         </Button>
       </Form>
     </Segment>

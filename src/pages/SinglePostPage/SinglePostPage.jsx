@@ -1,9 +1,10 @@
-import React from "react";
+import React from "react"
+// import PostCard from '../../components/PostCard/PostCard'
 
-function SinglePostPage(){
+export default function SinglePostPage(){
     return (
         <h1>This is the single post page.</h1>
+        
     )
 }
 
-export default SinglePostPage

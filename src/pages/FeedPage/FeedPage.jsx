@@ -6,6 +6,7 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Loading from "../../components/Loader/Loader";
 import * as postsAPI from "../../utils/postApi";
 import { Grid } from "semantic-ui-react";
+import SinglePostPage from "../SinglePostPage/SinglePostPage";
 
 
 export default function Feed(user, handleLogout) {
@@ -21,10 +22,16 @@ export default function Feed(user, handleLogout) {
   // we invoke this function in addPost component when the submit button on our form is clicked
   // so we need to pass it as a prop
   async function handleAddPost(post) {
+
+    console.log(post, "<---- POST");
+    
     try {
+
       setLoading(true);
       //putting data into db
-      const data = await postsAPI.create(post); // our server is going to return
+      const data = await postsAPI.create(post);
+      
+      // our server is going to return
       // the created post, that will be inside of data, which is the response from
       // the server, we then want to set it in state
       console.log(data, " this is response from the server, in handleAddPost");
@@ -34,6 +41,8 @@ export default function Feed(user, handleLogout) {
       console.log(err);
       setError(err.message);
     }
+    
+
   }
 
 
@@ -45,7 +54,6 @@ export default function Feed(user, handleLogout) {
       const data = await postsAPI.getAll();
       console.log(data, " this is data,");
       setPosts([...data.posts]);
-      // setPosts();
       setLoading(false);
     } catch (err) {
       console.log(err.message, " this is the error");

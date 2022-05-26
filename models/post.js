@@ -8,9 +8,10 @@ const likesSchema = mongoose.Schema({
 // A post has many likes, a like belongs to a POST
 const postSchema = new mongoose.Schema({
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User'}, // referencing a model
-    photoUrl: String,
-    caption: String,
-    likes: [likesSchema] // embedded schema
+    // photoUrl: String,
+    title: String,
+    caption: String
+    // likes: [likesSchema] // embedded schema
   })
  
 

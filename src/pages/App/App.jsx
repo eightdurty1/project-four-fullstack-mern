@@ -6,6 +6,7 @@ import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import FeedPage from '../FeedPage/FeedPage';
 import ProfilePage from '../ProfilePage/ProfilePage'; 
+import SinglePostPage from "../SinglePostPage/SinglePostPage";
 
 function App() {
   const [user, setUser] = useState(userService.getUser()); // getUser decodes our JWT token, into a javascript object
@@ -34,6 +35,9 @@ function App() {
           element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
         />
         <Route path="/:username" element={<ProfilePage user={user} handleLogout={handleLogout}  />} />
+
+        <Route path='/post/:postname' element={<SinglePostPage user={user} handleLogout={handleLogout} />} />
+
       </Routes>
     );
   }
