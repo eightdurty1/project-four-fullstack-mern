@@ -16,6 +16,7 @@ export function create(post) {
     })
   }
 
+  //AJAX call, returns fetch call
   export function getAll() {
     return fetch(BASE_URL, {
       headers: {

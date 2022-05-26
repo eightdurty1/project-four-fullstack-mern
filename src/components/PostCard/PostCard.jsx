@@ -10,13 +10,13 @@ function PostCard(post){
       // key={post._id}
         <Card  raised 
         // href={`/post/${post.post.title}`}
-        href='Hello'
+        href={`/post/${post.post._id}`}
         // header={post.post.title}
-        header='Title'
+        header={post.post.title}
         // Linkto={`/${post.user.username}`}
-        meta={`/${post.user.username}`}
+        meta={post.user.user.username}
         // description= {post.post.caption}
-        description='Blurb'
+        description={post.post.caption}
       />
     )
 }

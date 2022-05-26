@@ -16,11 +16,12 @@ export default function PostGallery({posts, numPhotosCol, isProfile, loading, ad
           </Segment>
         ) : null}
         {posts.map((post) => {
+          console.log(post, "<<_______-------- POST");
           return (
             <PostCard
             //post
-              // post={post}
-              // key={post.user._id}
+              post={post}
+              key={post._id}
               isProfile={isProfile}
             //   addLike={addLike}
             //   removeLike={removeLike}
