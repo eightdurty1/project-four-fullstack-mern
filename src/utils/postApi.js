@@ -28,3 +28,33 @@ export function create(post) {
       throw new Error('Bad Credentials! CHECK THE SERVER TERMINAL!')
     })
   }
+
+
+  export function deletePost(post, postId) {
+    return fetch(BASE_URL + "/" + postId, {
+      method: 'DELETE',
+      body: '',
+      headers: {
+        'Authorization': 'Bearer ' + tokenService.getToken()
+      }
+    
+    }).then(res => {
+      if(res.ok) return res.json();
+      throw new Error('Bad Credentials! CHECK THE SERVER TERMINAL!')
+    })
+  }
+
+
+  // export function edit(post) {
+  //   return fetch(BASE_URL, {
+  //     method: 'POST',
+  //     body: post,
+  //     headers: {
+  //       'Authorization': 'Bearer ' + tokenService.getToken()
+  //     }
+    
+  //   }).then(res => {
+  //     if(res.ok) return res.json();
+  //     throw new Error('Bad Credentials! CHECK THE SERVER TERMINAL!')
+  //   })
+  // }

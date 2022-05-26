@@ -1,23 +1,73 @@
 import React from 'react';
 // import { Link } from "react-router-dom";
-import { Card } from 'semantic-ui-react';
+import { Card, Button } from 'semantic-ui-react';
 import SinglePostPage from '../../pages/SinglePostPage/SinglePostPage'
+import * as postsAPI from "../../utils/postApi";
 
-function PostCard(post){
+function PostCard(post, user, inUser){
 
-  console.log(post, "<------card");
+
+function handleClick(e){
+  e.preventDefault()
+  console.log(post, "<--- Delete Post");
+
+  try {
+    postsAPI.deletePost(post, post.post._id);
+  
+  // const data = await postsAPI.delete(post);
+  // const formData = new FormData()
+  // formData.append('title', state.title)
+  // formData.append('caption', state.caption)
+  // console.log(formData, "<---- formData");
+  // props.handleAddPost(formData);
+}catch(err) {
+  console.log(err);
+  // setError(err.message);
+}
+
+}
+
+
+
+  // console.log(post, "<------card");
+  // console.log(post.post.user.username, "<----- Post Owner");
+  // console.log(inUser, "<------ Logged in User");
+  // console.log(user, "<--- USer");
     return(
       // key={post._id}
+      
         <Card  raised 
         // href={`/post/${post.post.title}`}
-        href={`/post/${post.post._id}`}
-        // header={post.post.title}
-        header={post.post.title}
-        // Linkto={`/${post.user.username}`}
-        meta={post.user.user.username}
-        // description= {post.post.caption}
-        description={post.post.caption}
-      />
+        // href={`/${post.post.user.username}/${post.post._id}`}
+        >
+        
+  <Card>
+      <Card.Content>
+        <Card.Header>{post.post.title}</Card.Header>
+        <Card.Meta>{post.post.user.username}</Card.Meta>
+        <Card.Description>
+          {post.post.caption}
+        </Card.Description>
+      </Card.Content>
+
+    </Card>
+
+    {post.post.user.username == 'tommythepoet' ? <div className='ui two buttons'>
+<Button basic color='yellow'>
+  Edit
+</Button>
+<Button 
+basic color='red'
+content='Click'
+ onClick={handleClick}
+ >
+  Delete
+</Button>
+
+</div> : null}
+      
+      </Card>
+      
     )
 }
 

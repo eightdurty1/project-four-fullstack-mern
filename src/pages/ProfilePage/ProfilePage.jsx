@@ -49,10 +49,11 @@ export default function ProfilePage(props) {
 
   async function getProfile() {
     try {
-      const data = await userService.getProfile(username);
+      console.log(props.user.username, "<----props.user.username");
+      const data = await userService.getProfile(props.user.username);
       console.log(data, " < -- data");
       setLoading(() => false);
-      setUser(() => data.user);
+      setUser(() => props.user);
       setPosts(() => data.posts);
     } catch (err) {
       console.log(err);
@@ -68,7 +69,7 @@ export default function ProfilePage(props) {
   }, []);
 
 
-
+  console.log(props.user, "<---props.user");
 
   if (error) {
     return (

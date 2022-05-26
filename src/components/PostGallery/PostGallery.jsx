@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Dimmer, Segment, Image  } from 'semantic-ui-react'
 import PostCard from '../PostCard/PostCard';
 import Loader from '../Loader/Loader';
 
 export default function PostGallery({posts, numPhotosCol, isProfile, loading, addLike, removeLike, user }){
+
+  // const [user, setUser] = useState({});
+  console.log(user, "<--- USer");
     console.log(posts, "<--- console log posts");
     return (
         <Card.Group itemsPerRow={numPhotosCol} stackable>
@@ -25,7 +28,8 @@ export default function PostGallery({posts, numPhotosCol, isProfile, loading, ad
               isProfile={isProfile}
             //   addLike={addLike}
             //   removeLike={removeLike}
-              user={user}
+              user={user.user}
+              inUser={user.user.username}
             />
           );
         })}

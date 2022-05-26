@@ -6,6 +6,7 @@ const { v4: uuidv4 } = require("uuid");
 const S3 = require("aws-sdk/clients/s3");
 const s3 = new S3(); // initialize the construcotr
 // now s3 can crud on our s3 buckets
+const Post = require("../models/post");
 
 module.exports = {
   signup,
@@ -76,7 +77,7 @@ async function profile(req, res){
     const user = await User.findOne({username: req.params.username})
     // Then find all the posts that belong to that user
     if(!user) return res.status(404).json({err: 'User not found'})
-
+    console.log(user, "<---user")
     const posts = await Post.find({user: user._id}).populate("user").exec();
     console.log(posts, ' this posts')
     res.status(200).json({posts: posts, user: user})

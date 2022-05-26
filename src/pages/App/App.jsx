@@ -36,7 +36,7 @@ function App() {
         />
         <Route path="/:username" element={<ProfilePage user={user} handleLogout={handleLogout}  />} />
 
-        <Route path='/post/:postname' element={<SinglePostPage user={user} handleLogout={handleLogout} />} />
+        <Route path='/:username/:postid' element={<SinglePostPage user={user} handleLogout={handleLogout} />} />
 
       </Routes>
     );
