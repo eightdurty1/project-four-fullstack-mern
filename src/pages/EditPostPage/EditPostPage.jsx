@@ -20,7 +20,7 @@ export default function EditPostPage(handleLogout, user, postRefresh, posts, loa
     </Grid.Row>
     <Grid.Row>
       <Grid.Column style={{ maxWidth: 450 }}>
-      //Form Render
+      
         <EditPostForm handleEditPost={handleEditPost} />
       </Grid.Column>
     </Grid.Row>

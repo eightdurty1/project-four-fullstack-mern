@@ -3,6 +3,7 @@ import React from 'react';
 import { Card, Button } from 'semantic-ui-react';
 import SinglePostPage from '../../pages/SinglePostPage/SinglePostPage'
 import * as postsAPI from "../../utils/postApi";
+import { Link } from 'react-router-dom';
 
 function PostCard(post, user, inUser){
 
@@ -44,10 +45,10 @@ console.log(post, "<--- this is thee post");
         // href={`/${post.post.user.username}/${post.post._id}`}
         >
         
-  <Card>
+  <Card style={{}} >
       <Card.Content>
         <Card.Header>{post.post.title}</Card.Header>
-        <Card.Meta>{post.post.user.username}</Card.Meta>
+        <Card.Meta><Link to={`/${post.post.user.username}`}>{post.post.user.username}</Link></Card.Meta>
         <Card.Description>
           {post.post.caption}
         </Card.Description>

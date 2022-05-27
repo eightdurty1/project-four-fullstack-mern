@@ -102,7 +102,7 @@ export default function Feed(user, handleLogout) {
         <PageHeader handleLogout={handleLogout} user={user}/>
       </Grid.Column>
     </Grid.Row>
-    <Grid.Row>
+    <Grid.Row style={{ height: '400px'}}>
       <Grid.Column style={{ maxWidth: 450 }}>
         <AddPostForm handleAddPost={handleAddPost} />
       </Grid.Column>
@@ -110,6 +110,7 @@ export default function Feed(user, handleLogout) {
     <Grid.Row>
       <Grid.Column style={{ maxWidth: 450 }}>
         <PostGallery
+         
         postRefresh={postRefresh}
           posts={posts}
           // numPhotosCol={1}

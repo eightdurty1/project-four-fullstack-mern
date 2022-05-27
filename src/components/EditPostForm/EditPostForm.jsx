@@ -108,6 +108,7 @@ export default function EditPostForm(props){
         />   
         Poem:
    <Form.Input
+            // style={{ height: '200px'}}
             className="form-control"
             name="caption"
             value={post.caption}

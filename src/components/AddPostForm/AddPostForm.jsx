@@ -52,6 +52,7 @@ export default function AddPostForm(props){
         />   
         Poem:
    <Form.Input
+            style={{ height: '200px'}}
             className="form-control"
             name="caption"
             value={state.caption}
