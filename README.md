@@ -3,6 +3,7 @@
 Share your spoken art. 
 
 ## Description
+![Screen Shot 2022-05-27 at 2 09 43 PM](https://user-images.githubusercontent.com/67360761/170789807-0b0fdf88-346b-43c0-9f3c-7a1c5b921d62.png)
 
 The Writer's Block is a Fullstack MERN application built for poets and spoken word artists to share their writings. The application includes a post feed where artists can view their and others' work. Registered users can view their and others' collections via profile views, including a profile picture and artist bio. Users have the option to update or delete their published posts. 
 
