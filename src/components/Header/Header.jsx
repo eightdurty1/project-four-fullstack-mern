@@ -15,7 +15,7 @@ export default function PageHeader({ user, handleLogout }) {
         </Link>
       </Header>
       <Header as="h2" floated="left">
-        <Link to={`/${user?.username}`}>
+        <Link to={`/${user.user.username}`}>
           <Image
             src={
               user?.photoUrl

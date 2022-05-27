@@ -15,10 +15,11 @@ import { useParams } from "react-router-dom";
 
 
 
-export default function ProfilePage(props) {
+export default function ProfilePage(user, handleLogout) {
+  console.log(user, '<----- user in function prflie page');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [user, setUser] = useState({});
+  const [users, setUsers] = useState({});
   const [posts, setPosts] = useState([]);
   // We need to grab the username out of the url,
   const { username } = useParams();
@@ -49,11 +50,11 @@ export default function ProfilePage(props) {
 
   async function getProfile() {
     try {
-      console.log(props.user.username, "<----props.user.username");
-      const data = await userService.getProfile(props.user.username);
+      console.log(user.username, "<----props.user.username");
+      const data = await userService.getProfile(user.username);
       console.log(data, " < -- data");
       setLoading(() => false);
-      setUser(() => props.user);
+      setUsers(() => user);
       setPosts(() => data.posts);
     } catch (err) {
       console.log(err);
@@ -69,12 +70,12 @@ export default function ProfilePage(props) {
   }, []);
 
 
-  console.log(props.user, "<---props.user");
+  console.log(user, "<---props.user");
 
   if (error) {
     return (
       <>
-        <PageHeader handleLogout={props.handleLogout} user={props.user}/>
+        <PageHeader handleLogout={handleLogout} user={user}/>
         <ErrorMessage error={error} />;
       </>
     );
@@ -83,7 +84,7 @@ export default function ProfilePage(props) {
   if (loading) {
     return (
       <>
-        <PageHeader handleLogout={props.handleLogout} user={props.user}/>
+        <PageHeader handleLogout={handleLogout} user={user}/>
         <Loading />
       </>
     );
@@ -93,7 +94,7 @@ export default function ProfilePage(props) {
     <Grid>
       <Grid.Row>
         <Grid.Column>
-          <PageHeader handleLogout={props.handleLogout} user={props.user}/>
+          <PageHeader handleLogout={handleLogout} user={user}/>
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
@@ -107,7 +108,7 @@ export default function ProfilePage(props) {
             isProfile={true}
             posts={posts}
             numPhotosCol={3}
-            user={props.user}
+            user={user}
             // addLike={addLike}
             // removeLike={removeLike}
           />

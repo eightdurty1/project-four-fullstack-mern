@@ -7,7 +7,9 @@ import EditPostForm from "../../components/EditPostForm/EditPostForm";
 
 export default function EditPostPage(handleLogout, user, postRefresh, posts, loading){
 
+  console.log(user, "<---user in editpost")
   function handleEditPost(){
+    
 
   }
     return (

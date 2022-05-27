@@ -94,6 +94,7 @@ export default function Feed(user, handleLogout) {
     );
   } 
 
+  console.log(user, "<--- user header");
 
   return (
     <Grid centered>
