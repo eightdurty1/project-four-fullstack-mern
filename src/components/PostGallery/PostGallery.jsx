@@ -3,7 +3,7 @@ import { Card, Dimmer, Segment, Image  } from 'semantic-ui-react'
 import PostCard from '../PostCard/PostCard';
 import Loader from '../Loader/Loader';
 
-export default function PostGallery({posts, numPhotosCol, isProfile, loading, addLike, removeLike, user }){
+export default function PostGallery({posts, numPhotosCol, isProfile, loading, addLike, removeLike, user, postRefresh }){
 
   // const [user, setUser] = useState({});
   console.log(user, "<--- USer");
@@ -19,10 +19,12 @@ export default function PostGallery({posts, numPhotosCol, isProfile, loading, ad
           </Segment>
         ) : null}
         {posts.map((post) => {
-          console.log(post, "<<_______-------- POST");
+          console.log(postRefresh, "<<_______-------- postRefresh");
+
           return (
+
             <PostCard
-            //post
+              postReference={postRefresh}
               post={post}
               key={post._id}
               isProfile={isProfile}

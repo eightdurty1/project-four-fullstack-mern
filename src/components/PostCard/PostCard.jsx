@@ -6,13 +6,16 @@ import * as postsAPI from "../../utils/postApi";
 
 function PostCard(post, user, inUser){
 
-
+// console.log(postRefresh, "<----postRefresh!!!!!!!!!");
 function handleClick(e){
   e.preventDefault()
   console.log(post, "<--- Delete Post");
 
+
+
   try {
     postsAPI.deletePost(post, post.post._id);
+    window.location.reload();
   
   // const data = await postsAPI.delete(post);
   // const formData = new FormData()
@@ -27,7 +30,7 @@ function handleClick(e){
 
 }
 
-
+console.log(post, "<--- this is thee post");
 
   // console.log(post, "<------card");
   // console.log(post.post.user.username, "<----- Post Owner");
@@ -51,9 +54,9 @@ function handleClick(e){
       </Card.Content>
 
     </Card>
-
+      {/* /:username/:postid */}
     {post.post.user.username == 'tommythepoet' ? <div className='ui two buttons'>
-<Button basic color='yellow'>
+<Button href={`${post.post.user.username}/${post.post._id}`} basic color='yellow'>
   Edit
 </Button>
 <Button 

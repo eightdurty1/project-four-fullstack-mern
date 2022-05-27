@@ -61,6 +61,10 @@ export default function Feed(user, handleLogout) {
     }
   }
 
+  function postRefresh(){
+    getPosts();
+  }
+
 
 
   // useEffect runs once
@@ -106,6 +110,7 @@ export default function Feed(user, handleLogout) {
     <Grid.Row>
       <Grid.Column style={{ maxWidth: 450 }}>
         <PostGallery
+        postRefresh={postRefresh}
           posts={posts}
           // numPhotosCol={1}
           isProfile={false}

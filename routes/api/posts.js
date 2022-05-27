@@ -8,7 +8,8 @@ router.post('/', upload.single('photo'), postsCtrl.create);
 router.get('/', postsCtrl.index)
 
 router.delete("/:id", postsCtrl.deletePost);
-router.put("/posts/:id", postsCtrl.editPost);
+router.post("/:id/:title/:caption", postsCtrl.editPost);
+router.get("/:username/:id", postsCtrl.getPost);
 
 
 
