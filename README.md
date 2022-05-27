@@ -1,37 +1,32 @@
-## Setup 
+# The Writers Block
 
-1. Clone the repo
-2. Rename the folder to your Project, you can use the `mv` command like `mv mern-boilerplate yourprojectname`
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+Share your spoken art. 
+
+## Description
+
+The Writer's Block is a Fullstack MERN application built for poets and spoken word artists to share their writings. The application includes a post feed where artists can view their and others' work. Registered users can view their and others' collections via profile views, including a profile picture and artist bio. Users have the option to update or delete their published posts. 
+
+## Getting Started
+
+### Running The Application
+
+* App is ready to go, fully deployed using Heroku cloud application platform. Launch: https://ga-project-four-mern-app.herokuapp.com/login
+
+## Technologies Used
+* Fullstack MERN
+* Deployed on Heroku
+* Git
+* GitHub
+
+## More on the Writer's Block
+* Trello board: https://trello.com/b/PNofGLNB/p4-mern-fullstack
+* ERD: https://lucid.app/lucidchart/66d326a2-59f9-4651-910b-5b1642a27367/edit?page=0_0&invitationId=inv_e32dbe4c-1804-47a8-a31b-64d85e0be75c#
 
 
-#### Setup your git repo
+## Future of The Writers Block
 
-1. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-2. Then you can run the following commands in the root of your project 
-
-```
-git init
-git add .
-git commit -m "first commit"
-git remote add origin git@git.generalassemb.ly:SEI-CC/test.git // this will be whatever your address will be, look at the address in the code github gives you!
-git push -u origin main
-```
-
-#### Setup the App
-
-```npm install```
-
-*DOTENV*
-
-`touch .env`
-
-add your variables
-
-```
-DATABASE_URL=mongodb://localhost:27017/testagramV2
-BUCKET_NAME=catcollectorone
-SECRET=mysecretforjwt
-```
-
-The app is configured, to use those respective key names for the database, jwt secret and aws bucket, of course you'll have your own values
+* Implement styling and make mobile responsive. 
+* Develop tag identifying functionality that would allow users to identify posts by variables such as genre and theme.
+* Allow users to leave and reply to published posts. 
+* Clean up and polish code by eliminating comments and code drafts.
+* Refactor layout of the app and images. 
